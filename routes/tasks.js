@@ -6,7 +6,7 @@ const express = require("express");
 
 const router = express.Router();
 
-// this pulls in functions from the controller file - Those function contain the real logic.
+// this pulls in functions from the controller file - Those functions contain the real logic.
 const {
   getAllTasks,
   getTaskById,
@@ -16,7 +16,7 @@ const {
 } = require("../controllers/tasksController");
 
 // this defines the routes
-// so if someone htis GET /tasks, it will run getAlltasks function.
+// so if someone hits GET /tasks, it will run getAlltasks function.
 
 router.get("/", getAllTasks);
 router.get("/:id", getTaskById);
