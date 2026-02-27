@@ -12,6 +12,10 @@ const app = express();
 // This helps the system use Express for translating JSON requests and responses.
 app.use(express.json());
 
+// we installed cors so our backend could talk to our frontend (which definitely defaults to port 5173)
+const cors = require("cors");
+app.use(cors());
+
 // This created a route to respond to HTTP GET requests.
 // GET requests are what your browser sends when you visit a webpage.
 // "/" is called the root URL and will run when someone visits the localhost:3000
