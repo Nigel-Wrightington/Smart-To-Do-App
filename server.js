@@ -1,7 +1,3 @@
-// we are creating a temporary in-memory tasks array to simulate a database
-let tasks = [];
-let idCounter = 1;
-
 // prefix all routes with /tasks
 const tasksRoutes = require("./routes/tasks");
 app.use("/tasks", tasksRoutes);

@@ -2,7 +2,7 @@
 
 // Create a task! -- POST request
 app.post(`/tasks`, (req, res) => {
-  const { title } = req.body;
+  const { title, dueDate } = req.body;
 
   if (!title) {
     return res.status(400).json({ error: `Title is required` });
@@ -12,6 +12,7 @@ app.post(`/tasks`, (req, res) => {
     id: idCounter++,
     title,
     completed: false,
+    dueDate: dueDate || null,
   };
 
   tasks.push(newTask);
@@ -45,10 +46,11 @@ app.put(`/tasks/:id`, (req, res) => {
     return res.status(404).json({ error: `Task not found` });
   }
 
-  const { title, completed } = req.body;
+  const { title, completed, dueDate } = req.body;
 
   if (title !== undefined) task.title = title;
   if (completed !== undefined) task.completed = completed;
+  if (dueDate !== undefined) task.dueDate = dueDate;
 
   res.json(task);
 });
