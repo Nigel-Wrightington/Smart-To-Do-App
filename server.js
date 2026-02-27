@@ -1,7 +1,3 @@
-// prefix all routes with /tasks
-const tasksRoutes = require("./routes/tasks");
-app.use("/tasks", tasksRoutes);
-
 // require('express') loads the Express library into your project.
 // express is a Node.js web framework that helps you build APIs and servers easily.
 // We are storing it in a variable named express
@@ -28,6 +24,10 @@ app.use(express.json());
 app.get(`/`, (req, res) => {
   res.send(`Smart To-Do API is running`);
 });
+
+// prefix all routes with /tasks
+const tasksRoutes = require("./routes/tasks");
+app.use("/tasks", tasksRoutes);
 
 // This starts the server and tells the app to listen on port 3000.
 app.listen(3000, () => {
